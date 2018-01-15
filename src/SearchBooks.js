@@ -11,7 +11,8 @@ class SearchBooks extends Component{
 	}
 
 	updateQuery(query) {
-    	this.setState({ query: query.trim() })
+    	this.setState({ query: query})
+    	this.search()
   	}
 
 	changeOption(book, shelf) {
@@ -19,17 +20,15 @@ class SearchBooks extends Component{
 	}
 
 	search() {
-		let word = this.state.query
-		BooksAPI.search(word).then((books) =>{
-  			this.setState({books})
-		})
+		if (this.state.query) {
+			let word = this.state.query
+			BooksAPI.search(word).then((books) =>{
+	  			this.setState({books})
+			})
+		}
 	}
 
 	render() {
-		const { query } = this.state
-		if (query) {
-      		this.search()
-      	}
 
 		return (
           <div className="search-books">
@@ -37,8 +36,7 @@ class SearchBooks extends Component{
               <Link className='close-search' to='/'>Close</Link>
               <div className="search-books-input-wrapper">
 				<Debounce time="500" handler="onChange">
-                <input type="text" 
-                value={query}
+                <input type="text"
                 onChange={(event) => this.updateQuery(event.target.value)} 
                 placeholder="Search by title or author"/>
                 </Debounce>
