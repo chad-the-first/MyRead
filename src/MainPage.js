@@ -57,7 +57,7 @@ class MainPage extends Component{
             </div>
             <div className="list-books-content">
                <Shelf shelf='Currently Reading' value='currentlyReading' list = {reading}/>
-               <Shelf shelf='Want to Read' value='wantToRead' list = {toread}/>
+               <Shelf shelf='Want to Read' value='wantToRead' list={toread}/>
                <Shelf shelf='Read' value='read' list = {read}/>  
             </div>
             <div className="open-search">
