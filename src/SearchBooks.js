@@ -36,7 +36,6 @@ class SearchBooks extends Component{
             })
             if(check){
               check.shelf = y.shelf
-              console.log
             }
           })
           books.map(function(x){
@@ -72,7 +71,7 @@ class SearchBooks extends Component{
                   <li key={book.id}>
                     <div className="book">
                       <div className="book-top">
-                        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
+                        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage:`url(${book.imageLinks && book.imageLinks.smallThumbnail`${book.imageLinks.smallThumbnail}`:`http://via.placeholder.com/128x193?text=No%20Cover`})` }}></div>
                         <div className="book-shelf-changer">
                           <select id='select' value={book.shelf} onChange={this.changeOption.bind(this, book)}>
                             <option value="none" disabled>Move to...</option>
