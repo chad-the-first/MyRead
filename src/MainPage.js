@@ -22,7 +22,7 @@ class MainPage extends Component{
 
 	    let Shelf = (props) => (
 	    	<div className="bookshelf">
-              <h2 className="bookshelf-title">{props.shelf}</h2>
+              <h2 className="bookshelf-title" style={{ textAlign: 'center' }}>{props.shelf}</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
                 {props.list.map((book) => (
